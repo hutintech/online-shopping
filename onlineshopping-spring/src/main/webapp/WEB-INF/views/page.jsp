@@ -20,6 +20,12 @@
     <meta name="author" content="">
 
     <title>Online Shopping - ${title}</title>
+    
+    <script>
+		window.menu = '${title}';
+	
+		window.contextRoot = '${contextRoot}'
+	</script>
 
     <!-- Bootstrap Core CSS -->
 	<link href="${css}/bootstrap.min.css" rel="stylesheet">
@@ -46,35 +52,43 @@
 
   <body>
 
-    <!-- Navigation -->
- 	<%@include file="./shared/navbar.jsp"%>
- 	
-    <!-- Page Content -->
-    <div class="content">
-		<!-- Loading the home content -->
-      	<c:if test="${userClickHome == true }">
-			<%@include file="home.jsp"%>
-		</c:if>
-		
-		<!-- Load only when user clicks about -->
-			<c:if test="${userClickAbout == true }">
-			<%@include file="about.jsp"%>
-		</c:if>
-
-		<!-- Load only when user clicks contact -->
-		<c:if test="${userClickContact == true }">
-				<%@include file="contact.jsp"%>
-		</c:if>
-    </div>
-    <!-- /.container -->
-
-    <!-- Footer -->
-    <%@include file="./shared/footer.jsp"%>
-	<!-- /.container -->
+	<div class="se-pre-con"></div>
+	<div class="wrapper">
+	    <!-- Navigation -->
+	 	<%@include file="./shared/navbar.jsp"%>
+	 	
+	    <!-- Page Content -->
+	    <div class="content">
+			<!-- Loading the home content -->
+	      	<c:if test="${userClickHome == true }">
+				<%@include file="home.jsp"%>
+			</c:if>
+			
+			<!-- Load only when user clicks about -->
+				<c:if test="${userClickAbout == true }">
+				<%@include file="about.jsp"%>
+			</c:if>
 	
-    <!-- Bootstrap core JavaScript -->
-    <script src="${js}/jquery.js"></script>
-    <script src="${js}/bootstrap.bundle.min.js"></script>
+			<!-- Load only when user clicks contact -->
+			<c:if test="${userClickContact == true }">
+					<%@include file="contact.jsp"%>
+			</c:if>
+	    </div>
+	    <!-- /.container -->
+	
+	    <!-- Footer -->
+	    <%@include file="./shared/footer.jsp"%>
+		<!-- /.container -->
+		
+	    <!-- Bootstrap core JavaScript -->
+	    <script src="${js}/jquery.js"></script>
+	    
+	    <script src="${js}/bootstrap.bundle.min.js"></script>
+	    
+	    <!-- Self coded javascript -->
+		<script src="${js}/myapp.js"></script>
+	
+	</div>
 
   </body>
 
