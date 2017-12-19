@@ -3,6 +3,8 @@ package com.yosefpham.shoppingbackend.daoimpl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.yosefpham.shoppingbackend.dao.CategoryDAO;
@@ -12,6 +14,9 @@ import com.yosefpham.shoppingbackend.dto.Category;
 public class CategoryDAOImpl implements CategoryDAO {
 
 	private static List<Category> categories = new ArrayList<>();
+	
+	@Autowired
+	private SessionFactory sessionFactory;
 	
 	static {
 		Category category = new Category();
@@ -32,6 +37,15 @@ public class CategoryDAOImpl implements CategoryDAO {
 		category.setActive(true);
 		
 		categories.add(category);
+		
+		category = new Category();
+		category.setId(3);
+		category.setName("Laptop");
+		category.setImageURL("CAT_2.png");
+		category.setDescription("this is some description for Laptop");
+		category.setActive(true);
+		categories.add(category);
+		
 	}
 	
 	@Override
@@ -51,18 +65,41 @@ public class CategoryDAOImpl implements CategoryDAO {
 	@Override
 	public boolean add(Category category) {
 		// TODO Auto-generated method stub
-		return false;
+		try {
+			// add the category to the database table
+			sessionFactory.getCurrentSession().persist(category);
+			return true;
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			return false;
+		}
 	}
 
 	@Override
 	public boolean update(Category category) {
 		// TODO Auto-generated method stub
-		return false;
+		try {
+			// add the category to the database table
+			sessionFactory.getCurrentSession().update(category);
+			return true;
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			return false;
+		}
 	}
 
 	@Override
 	public boolean delete(Category category) {
 		// TODO Auto-generated method stub
-		return false;
+		category.setActive(false);
+		
+		try {
+			// add the category to the database table
+			sessionFactory.getCurrentSession().update(category);
+			return true;
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			return false;
+		}
 	}
 }
