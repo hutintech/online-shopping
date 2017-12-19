@@ -15,6 +15,10 @@
             	<a href="${contextRoot}/about">About</a>
             </li>
             
+            <li id="listProducts">
+                <a href="${contextRoot}/show/all/products">&nbsp;&nbsp;&nbsp;View Products</a>
+            </li>
+            
             <li class="nav-item">
               <a class="nav-link" href="#">Services</a>
             </li>
