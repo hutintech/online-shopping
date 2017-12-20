@@ -55,7 +55,9 @@
   <body>
 
 	<div class="se-pre-con"></div>
+	
 	<div class="wrapper">
+	
 	    <!-- Navigation -->
 	 	<%@include file="./shared/navbar.jsp"%>
 	 	
@@ -86,6 +88,11 @@
 				<%@include file="singleProduct.jsp"%>
 			</c:if>
 			
+			<!-- Load only when user clicks manage product -->
+			<c:if test="${userClickManageProduct == true}">
+				<%@include file="manageProduct.jsp"%>
+			</c:if>	
+			
 	    </div>
 	    <!-- /.container -->
 	
@@ -108,9 +115,6 @@
 	    <!-- DataTable Bootstrap Script -->
 		<script src="${js}/dataTables.bootstrap.js"></script>
 		<!-- <script src="${js}/dataTables.bootstrap.min.js"></script> -->
-		
-		<!-- DataTable Bootstrap Script -->
-		<script src="${js}/dataTables.bootstrap.js"></script>
 		
 		<!-- DataTable Bootstrap Script -->
 		<script src="${js}/bootbox.min.js"></script>
