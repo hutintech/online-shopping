@@ -8,28 +8,34 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+
 import org.springframework.stereotype.Component;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @Entity
 public class Product {
 	
-	// private fields
+		// private fields
 		@Id
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		private int id;
 		private String code;
-		private String name;	
-		private String brand;	
+		private String name;
+		private String brand;
 		private String description;
-		@Column(name = "unit_price")	
+		@Column(name = "unit_price")
 		private double unitPrice;
 		private int quantity;
 		@Column(name = "is_active")	
+		@JsonIgnore
 		private boolean active;
-		@Column(name = "category_id")	
+		@Column(name = "category_id")
+		@JsonIgnore
 		private int categoryId;
 		@Column(name = "supplier_id")
+		@JsonIgnore
 		private int supplierId;
 		private int purchases;
 		private int views;

@@ -16,8 +16,10 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Online Shopping Website Using Spring MVC and Hibernate">
+	<meta name="author" content="Yosef Pham Phuong">
+	<meta name="_csrf" content="${_csrf.token}">
+	<meta name="_csrf_header" content="${_csrf.headerName}">
 
     <title>Online Shopping - ${title}</title>
     
@@ -60,24 +62,30 @@
 	    <!-- Page Content -->
 	    <div class="content">
 			<!-- Loading the home content -->
-	      	<c:if test="${userClickHome == true }">
+			<c:if test="${userClickHome == true }">
 				<%@include file="home.jsp"%>
 			</c:if>
 			
 			<!-- Load only when user clicks about -->
-				<c:if test="${userClickAbout == true }">
+			<c:if test="${userClickAbout == true }">
 				<%@include file="about.jsp"%>
 			</c:if>
 	
 			<!-- Load only when user clicks contact -->
 			<c:if test="${userClickContact == true }">
-					<%@include file="contact.jsp"%>
+				<%@include file="contact.jsp"%>
 			</c:if>
 			
 			<!-- Load only when user clicks contact -->
 			<c:if test="${userClickAllProducts == true or userClickCategoryProducts == true }">
 				<%@include file="listProducts.jsp"%>
 			</c:if>
+			
+			<!-- Load only when user clicks show product -->
+			<c:if test="${userClickShowProduct == true}">
+				<%@include file="singleProduct.jsp"%>
+			</c:if>
+			
 	    </div>
 	    <!-- /.container -->
 	
@@ -85,14 +93,30 @@
 	    <%@include file="./shared/footer.jsp"%>
 		<!-- /.container -->
 		
-	    <!-- Bootstrap core JavaScript -->
-	    <script src="${js}/jquery.js"></script>
+		<!-- jQuery -->
+		<script src="${js}/jquery.js"></script>
+
+		<script src="${js}/jquery.validate.js"></script>
+		
+		<!-- Bootstrap Core JavaScript -->
+		<script src="${js}/bootstrap.min.js"></script>
+	    <!-- <script src="${js}/bootstrap.bundle.min.js"></script> -->
 	    
-	    <script src="${js}/bootstrap.bundle.min.js"></script>
+	    <!-- DataTable Plugin -->
+		<script src="${js}/jquery.dataTables.js"></script>
+		
+	    <!-- DataTable Bootstrap Script -->
+		<script src="${js}/dataTables.bootstrap.js"></script>
+		<!-- <script src="${js}/dataTables.bootstrap.min.js"></script> -->
+		
+		<!-- DataTable Bootstrap Script -->
+		<script src="${js}/dataTables.bootstrap.js"></script>
+		
+		<!-- DataTable Bootstrap Script -->
+		<script src="${js}/bootbox.min.js"></script>
 	    
 	    <!-- Self coded javascript -->
 		<script src="${js}/myapp.js"></script>
-	
 	</div>
 
   </body>
