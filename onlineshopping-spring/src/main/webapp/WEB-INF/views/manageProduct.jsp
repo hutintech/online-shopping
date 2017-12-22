@@ -1,3 +1,5 @@
+<%@taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
+
 <div class="container">
 
 	<c:if test="${not empty message}">	
@@ -57,6 +59,7 @@
 								<sf:errors path="unitPrice" cssClass="help-block" element="em"/>
 							</div>
 						</div>
+
 						<div class="form-group">
 							<label class="control-label col-md-4">Quantity</label>
 							<div class="col-md-8">
@@ -66,6 +69,7 @@
 							</div>
 						</div>
 
+
 						<div class="form-group">
 							<label class="control-label col-md-4">Upload a file</label>
 							<div class="col-md-8">
@@ -73,6 +77,7 @@
 								<sf:errors path="file" cssClass="help-block" element="em"/> 
 							</div>
 						</div>
+
 
 						<div class="form-group">
 							<label class="control-label col-md-4">Category</label>
@@ -91,6 +96,8 @@
 							
 						</div>
 
+
+					
 						<div class="form-group">
 							
 							<div class="col-md-offset-4 col-md-4">
@@ -137,7 +144,8 @@
 							placeholder="Enter category description here!" /> 
 					</div>
 				</div>	        	        
-
+	        
+	        
 				<div class="form-group">				
 					<div class="col-md-offset-4 col-md-4">					
 						<input type="submit" name="submit" value="Save" class="btn btn-primary"/>						
@@ -154,9 +162,11 @@
 	<hr/>
 	
 	<div class="row">
-
+				
+		
 		<div class='col-xs-12'>
-
+		
+		
 			<table id="productsTable" class="table table-condensed table-bordered">
 							
 				<thead>					
@@ -184,10 +194,14 @@
 						<th>Edit</th>
 					</tr>									
 				</tfoot>
-					
+				
+							
 			</table>
-
+		
+		
 		</div>
-
+	
+	
 	</div>
+
 </div>
