@@ -25,6 +25,7 @@ import com.yosefpham.shoppingbackend.dao.ProductDAO;
 import com.yosefpham.shoppingbackend.dto.Product;
 
 import com.yosefpham.onlineshopping.controller.ManagementController;
+import com.yosefpham.onlineshopping.util.FileUtil;
 import com.yosefpham.onlineshopping.validator.ProductValidator;
 import com.yosefpham.shoppingbackend.dto.Category;
 
@@ -33,13 +34,13 @@ import com.yosefpham.shoppingbackend.dto.Category;
 public class ManagementController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(ManagementController.class);
-	
+
 	@Autowired
 	private ProductDAO productDAO;
 	
 	@Autowired
-	private CategoryDAO categoryDAO;
-	
+	private CategoryDAO categoryDAO;		
+
 	@RequestMapping("/product")
 	public ModelAndView manageProduct(@RequestParam(name="success",required=false)String success) {		
 
@@ -67,7 +68,9 @@ public class ManagementController {
 		}
 			
 		return mv;
+		
 	}
+
 	
 	@RequestMapping("/{id}/product")
 	public ModelAndView manageProductEdit(@PathVariable int id) {		
@@ -94,12 +97,11 @@ public class ManagementController {
 			new ProductValidator().validate(mProduct, results);
 		}
 		else {
-		// edit check only when the file has been selected
+			// edit check only when the file has been selected
 			if(!mProduct.getFile().getOriginalFilename().equals("")) {
 				new ProductValidator().validate(mProduct, results);
 			}			
 		}
-				
 		
 		if(results.hasErrors()) {
 			model.addAttribute("message", "Validation fails for adding the product!");
@@ -115,7 +117,10 @@ public class ManagementController {
 			productDAO.update(mProduct);
 		}
 	
-		
+		 //upload the file
+		 if(!mProduct.getFile().getOriginalFilename().equals("") ){
+			FileUtil.uploadFile(request, mProduct.getFile(), mProduct.getCode()); 
+		 }
 		
 		return "redirect:/manage/product?success=product";
 	}

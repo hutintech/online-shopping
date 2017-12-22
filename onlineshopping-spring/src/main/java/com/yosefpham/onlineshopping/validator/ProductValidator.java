@@ -11,7 +11,7 @@ public class ProductValidator implements Validator{
 	public boolean supports(Class<?> clazz) {
 		return Product.class.equals(clazz);
 	}
-	
+
 	@Override
 	public void validate(Object target, Errors errors) {
 		
@@ -28,6 +28,7 @@ public class ProductValidator implements Validator{
 				errors.rejectValue("file", null, "Please select an image file to upload!");
 				return;	
 			}
+
 	}
 
 }

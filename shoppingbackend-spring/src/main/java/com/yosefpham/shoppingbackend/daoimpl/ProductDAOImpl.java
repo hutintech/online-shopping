@@ -34,7 +34,7 @@ public class ProductDAOImpl implements ProductDAO{
 		}
 		return null;
 	}
-	
+
 	/*
 	 * LIST
 	 * */
@@ -129,6 +129,19 @@ public class ProductDAOImpl implements ProductDAO{
 							.setFirstResult(0)
 							.setMaxResults(count)
 								.getResultList();					
+	}
+
+	@Override
+	public List<Product> getProductsByParam(String param, int count) {
+		
+		String query = "FROM Product WHERE active = true ORDER BY " + param + " DESC";
+		
+		return sessionFactory
+					.getCurrentSession()
+					.createQuery(query,Product.class)
+					.setFirstResult(0)
+					.setMaxResults(count)
+					.getResultList();
 	}
 
 }

@@ -125,7 +125,6 @@
   
   <build>
   	<plugins>
-  	
   		<!-- Update to latest version of JAVA -->
   		<plugin>
   			<artifactId>maven-compiler-plugin</artifactId>
