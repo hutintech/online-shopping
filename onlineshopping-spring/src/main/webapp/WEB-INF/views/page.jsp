@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
@@ -13,11 +13,12 @@
 
 <head>
 
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Online Shopping Website Using Spring MVC and Hibernate">
-<meta name="author" content="Khozema Nullwala">
+<meta name="author" content="Yosef Pham Phuong">
 <meta name="_csrf" content="${_csrf.token}">
 <meta name="_csrf_header" content="${_csrf.headerName}">
 
@@ -54,7 +55,6 @@
 </head>
 
 <body>
-	
 	<div class="se-pre-con"></div>
 	<div class="wrapper">
 
@@ -62,7 +62,6 @@
 		<%@include file="./shared/navbar.jsp"%>
 
 		<!-- Page Content -->
-
 		<div class="content">
 			
 			<!-- Loading the home content -->

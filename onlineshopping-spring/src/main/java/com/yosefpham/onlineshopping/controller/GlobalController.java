@@ -1,5 +1,10 @@
 package com.yosefpham.onlineshopping.controller;
 
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +29,6 @@ public class GlobalController {
 	
 	private UserModel userModel = null;
 	private User user = null;	
-	
 	
 	@ModelAttribute("userModel")
 	public UserModel getUserModel() {		

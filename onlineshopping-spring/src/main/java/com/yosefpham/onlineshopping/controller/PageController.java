@@ -1,8 +1,10 @@
 package com.yosefpham.onlineshopping.controller;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -37,7 +39,7 @@ private static final Logger logger = LoggerFactory.getLogger(PageController.clas
 	
 	@Autowired
 	private ProductDAO productDAO;
-	
+
 	@RequestMapping(value = {"/", "/home", "/index"})
 	public ModelAndView index(@RequestParam(name="logout",required=false)String logout) {		
 		ModelAndView mv = new ModelAndView("page");		
